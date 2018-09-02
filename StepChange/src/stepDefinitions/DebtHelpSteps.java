@@ -177,7 +177,7 @@ public class DebtHelpSteps {
 		dBPOM1.clickHirePurchase();
 	}
 
-	@When("^I select -  (\\d+)  - for the question -  How many hire purchase agreements or logbook loans do   - from the dropdown menu$")
+	/*@When("^I select -  (\\d+)  - for the question -  How many hire purchase agreements or logbook loans do   - from the dropdown menu$")
 	public void i_select_for_the_question_How_many_hire_purchase_agreements_or_logbook_loans_do_from_the_dropdown_menu(int arg1) {
 		dBPOM1.selectHPAgreement(3);
 	}
@@ -185,7 +185,7 @@ public class DebtHelpSteps {
 	@When("^I click  -  Next - button to continue on the main form$")
 	public void i_click_Next_button_to_continue_on_the_main_form() {
 		dBPOM1.selectHPAgreement(3);
-	}
+	}*/
 
 	@When("^I select -  No    - for the question - Do you have any pets\\?   - from the radio button$")
 	public void i_select_No_for_the_question_Do_you_have_any_pets_from_the_radio_button()  {

@@ -43,19 +43,20 @@ public class DebtRemedyPOM1 {
 	@FindBy(id = "ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions_ctl14_iDropList_Col0")
 	WebElement vehicles;
 
-	@FindBy(id = "ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions_ctl15_iRadList_Col0_0")
+	//@FindBy(id = "ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions_ctl15_iRadList_Col0_0")
+	@FindBy(id = "ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions_ctl15_iRadList_Col0_1")
 	WebElement hirePurchase;
 
-	@FindBy(xpath = "//table[@id='popupTable']//select[@id='ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions_ctl16_iDropList_Col0']")
-	WebElement hpAgreement;
+/*	@FindBy(xpath = "//table[@id='popupTable']//select[@id='ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions_ctl16_iDropList_Col0']")
+	WebElement hpAgreement;*/
 
 	// @FindBy(id="cancelLightBoxWhatIsHP")
-	@FindBy(id = "closeLightBoxWhatIsHP")
-	WebElement nextButton;
-
+/*	@FindBy(id = "closeLightBoxWhatIsHP")
+	WebElement nextButton;*/
+				
 	@FindBy(id = "ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions_ctl17_iRadList_Col0_0")
 	WebElement pets;
-
+			
 	@FindBy(id = "ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_dgQuestions2_ctl02_iDropList_Col0")
 	WebElement interests;
 
@@ -145,7 +146,7 @@ public class DebtRemedyPOM1 {
 		hirePurchase.click();
 	}
 
-	public void selectHPAgreement(int indexPoint)  {
+/*	public void selectHPAgreement(int indexPoint)  {
 		try {
 		WebDriverWait wait = new WebDriverWait(driver, 2);
 		wait.until(ExpectedConditions.elementToBeClickable(hpAgreement));
@@ -155,12 +156,12 @@ public class DebtRemedyPOM1 {
 			System.out.println("Element not available");
 		}
 		nextButton.click();
-	}
+	}*/
 
 
 	public void selectPets()  {
 	try {
-		WebDriverWait wait = new WebDriverWait(driver, 3);
+		WebDriverWait wait = new WebDriverWait(driver, 6);
 		wait.until(ExpectedConditions.elementToBeClickable(pets));
 		
 	} catch(Exception e) {

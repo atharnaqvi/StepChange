@@ -1,18 +1,28 @@
 package testBase;
 
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-//Import Page Object Model classes
-import pageFactory.HomePagePOM;
-import pageFactory.DebtsCheckListPOM;
 import pageFactory.DebtRemedyPOM1;
 import pageFactory.DebtRemedyPOM2;
+import pageFactory.DebtsCheckListPOM;
+//Import Page Object Model classes
+import pageFactory.HomePagePOM;
 
 class debtAdviceForm {
+/*	long startTime;
+	long endTime;
+	long duration;
+	long totalTime;
+	long totalDuration;
+	double seconds;*/
+	
+	StopWatch watch = new StopWatch();
+	
 	WebDriver driver;
 	String baseURL;
 	HomePagePOM debtHelp;
@@ -26,7 +36,7 @@ class debtAdviceForm {
 		baseURL = "https://www.stepchange.org/";
 		
 		driver.manage().window().maximize();
-		driver.get(baseURL);
+		
 		
 		debtHelp = new HomePagePOM(driver);
 		debtCheck = new DebtsCheckListPOM(driver);
@@ -38,12 +48,23 @@ class debtAdviceForm {
 
 	@Test
 	public void test1() throws Exception {
+		//startTime = System.nanoTime();
+		watch.start();
+		driver.get(baseURL);
 		debtHelp.clickCookieAccept();
 		
 		debtHelp.clickDebtAdvice();
 		debtHelp.clickHelpNow();
 		debtHelp.startNow();
-				
+		
+		double seconds = (double)watch.getTime()/1000.0;
+		System.out.println("The time for home page to load : " + seconds);
+		watch.reset();
+		/*endTime = System.nanoTime();
+		duration = endTime - startTime;
+		seconds = (double)duration/1000000000.0;
+		System.out.println("Time taken to excute the first page : " + seconds);*/
+		watch.start();
 		debtCheck.clickUKResidency();
 		debtCheck.clickDebtsCountry();
 		debtCheck.clickDebtProblem();
@@ -71,7 +92,7 @@ class debtAdviceForm {
 		dBPOM1.clickHirePurchase();
 		
 		//popup block
-		dBPOM1.selectHPAgreement(3);
+		//dBPOM1.selectHPAgreement(3);
 		
 		dBPOM1.selectPets();
 		dBPOM1.selectInterests(1);
@@ -124,7 +145,14 @@ class debtAdviceForm {
 		Thread.sleep(3000);
 		dBPOM2.clickSaveAndExit();
 		
+		/*totalTime = System.nanoTime();
+		totalDuration = totalTime - startTime;
+		seconds = (double)totalDuration/1000000000.0;
+		System.out.println("Total duration is : " + seconds);*/
 		
+		double seconds1 = (double)watch.getTime()/1000.0;
+		System.out.println("Total time for the whole test is: " + seconds1);
+		watch.stop();
 	}
 	
 	
